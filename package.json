@@ -56,7 +56,7 @@
     "electron-download-manager": "^2.1.2",
     "electron-log": "^3.0.9",
     "electron-updater": "^4.3.5",
-    "electron-util": "^0.11.0",
+    "electron-util": "^0.17.2",
     "elliptic": "^6.5.4",
     "ethers": "^5.0.26",
     "find-process": "^1.4.4",
