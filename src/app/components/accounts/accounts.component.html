@@ -1,0 +1,69 @@
+<!-- ACCOUNTS -->
+<div class="container mt-0 mb-3 qlc-content-first">
+  <div class="row">
+    
+    <div class="col-12 pl-0 pr-0">
+      
+      <!-- TITLE -->
+      <div class="col-lg-12 mb-3 mt-2 pl-md-2 pr-md-2">
+        <div class="content-title">
+          <h1>QLC Chain Wallets</h1>
+        </div>
+      </div>
+      
+      <!-- LIST -->
+      <div class="col-lg-12 mb-4 pl-md-2 pr-md-2">
+        <div class="content-box-white">
+          
+          
+          <div class="container">
+            
+            <div class="row qlc-table-header">
+              <div class="col-xl-8 col-lg-7 col-md-6 col-sm-5 col-6 text-truncate">Address</div>
+              <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7 col-6 text-right">Balances</div>
+              <!--<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6 pr-4 text-right">Last transaction</div>-->
+            </div>
+            <div class="row qlc-table-row closed" *ngFor="let account of accounts">
+              <div class="d-none d-xl-block col-xl-8">
+                <a [routerLink]="'/account/' + account.account">{{ account.account }}</a>
+              </div>
+              <div class="d-none d-lg-block d-xl-none col-lg-7 pl-4">
+                <a [routerLink]="'/account/' + account.account">{{ account.account }}</a>
+              </div>
+              <div class="d-none d-md-block d-lg-none col-md-6 pl-4">
+                <a [routerLink]="'/account/' + account.account">{{ account.account | squeeze : '26,26' }}</a>
+              </div>
+              <div class="d-none d-sm-block d-md-none col-sm-5 pl-4">
+                <a [routerLink]="'/account/' + account.account">{{ account.account | squeeze : '18,18' }}</a>
+              </div>
+              <div class="d-block d-sm-none col-6 pl-4">
+                <a [routerLink]="'/account/' + account.account">{{ account.account | squeeze : '11,11' }}</a>
+              </div>
+              <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7 col-6 text-right pr-3">
+                <span data-toggle="tooltip" data-placement="top" title="" *ngFor="let token of account.tokens" style="display:block;padding:0px;margin:0px;min-height:auto;margin-bottom:4px;">{{ token.balance | qlc:token.tokenInfo.decimals | currency:'':'':'1.2-8' }} {{ token.tokenInfo.tokenSymbol }}<img src="assets/img/token-{{ token.tokenInfo.image | lowercase }}.png" class="icon-token" style="width:18px;margin-top:-2px;"></span>
+              </div>
+              <!--<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6 pr-4 text-right" *ngFor="let token of account.tokens">{{ token.modified * 1000 | date: 'short' }}</div>-->
+              <div class="container transaction-details"></div>
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+      
+      <!-- PAGINATION -->
+      <div class="col-lg-12 mb-0 mt-2 pl-md-2 pr-md-2 text-center" *ngIf="pages.length > 1">
+        <a class="btn btn-primary btn-blue btn-box" *ngIf="activePage != 1" (click)="goTo(activePage-1)">&lt;</a>
+        <a class="btn btn-primary btn-white btn-box" *ngFor="let page of pages" [ngClass]="{'active' : page == activePage}" (click)="goTo(page)">{{ page }}</a>
+        <a class="btn btn-primary btn-blue btn-box" *ngIf="activePage != allPages" (click)="goTo(activePage+1)">&gt;</a>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="container mt-4 mb-4">
+  <div class="row">
+  </div>
+</div>
