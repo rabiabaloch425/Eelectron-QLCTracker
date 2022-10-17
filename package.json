@@ -68,7 +68,7 @@
     "ngx-clipboard": "^12.3.1",
     "ngx-device-detector": "^1.5.2",
     "ngx-logger": "^4.2.2",
-    "pidusage": "^2.0.21",
+    "pidusage": "^3.0.1",
     "ps-node": "^0.1.6",
     "qlc.js": "0.0.7",
     "qrcode": "^1.4.4",
